@@ -4,6 +4,8 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin;
 using Owin;
 using Trash_Collecter_Main.Models;
+using System.Threading.Tasks;
+using System;
 
 [assembly: OwinStartupAttribute(typeof(Trash_Collecter_Main.Startup))]
 namespace Trash_Collecter_Main
@@ -19,22 +21,20 @@ namespace Trash_Collecter_Main
         //private void CreateRoles()
         //{
         //    ApplicationDbContext context = new ApplicationDbContext();
-
-        //    var RoleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
-        //    string[] roleNames = { "Customer", "Employee" };
+        //private async Task CreateRoles(IServiceProvider serviceProvider)
+        //{
+        //    var RoleManager = serviceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+        //    var UserManager = serviceProvider.GetRequiredService<UserManager<ApplicationUser>>();
+        //    string[] roleNames = { "Admin", "Customer", "Employee" };
         //    IdentityResult roleResult;
-            
-        //    if (!RoleManager.RoleExists("Customer"))
+        //    foreach (var roleName in roleNames)
         //    {
-        //        roleResult = RoleManager.Create(new IdentityRole("Customer"));
+        //        var roleExist = await RoleManager.RoleExistsAsync(roleName);
+        //        if (!roleExist)
+        //        {
+        //            roleResult = await RoleManager.CreateAsync(new IdentityRole(roleName));
+        //        }
         //    }
-        //    else if (!RoleManager.RoleExists("Employee"))
-        //    {
-        //        roleResult = RoleManager.Create(new IdentityRole("Employee"));
-        //    }
-
-        //    var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
-
         //}
     }
 }

@@ -16,6 +16,7 @@ namespace Trash_Collecter_Main.Models
         public string city { get; set; }
         public string state { get; set; }
         public int zipCode { get; set; }
+        public string role { get; set; }
         public string dayOfTheWeek { get; set; }
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {

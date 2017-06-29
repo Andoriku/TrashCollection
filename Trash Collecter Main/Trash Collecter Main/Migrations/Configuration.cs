@@ -32,8 +32,11 @@ namespace Trash_Collecter_Main.Migrations
             context.Roles.AddOrUpdate(r => r.Name,
  
                 new IdentityRole { Name = "Customer" },
-                new IdentityRole { Name = "Employee" }
+                new IdentityRole { Name = "Employee" },
+                new IdentityRole { Name = "Admin"}
                 );
+            var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
+            //UserManager.AddToRole("8de3454d-ff64-4e2f-a645-8c31db7e2814", "Admin");
         }
     }  
 }

@@ -160,11 +160,13 @@ namespace Trash_Collecter_Main.Controllers
                     addressLine2 = model.addressLine2,
                     city = model.city,
                     state = model.state,
-                    zipCode = model.zipcode
+                    zipCode = model.zipcode,
+                    role = model.role
                 };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    UserManager.AddToRole(user.Id, "Customer");
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771

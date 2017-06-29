@@ -162,8 +162,7 @@ C:\Users\Andrew Jordan\Desktop\Trash Collector\TrashCollection\Trash Collecter M
 C:\Users\Andrew Jordan\Desktop\Trash Collector\TrashCollection\Trash Collecter Main\Trash Collecter Main\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\Andrew Jordan\Desktop\Trash Collector\TrashCollection\Trash Collecter Main\Trash Collecter Main\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Users\Andrew Jordan\Desktop\Trash Collector\TrashCollection\Trash Collecter Main\Trash Collecter Main\obj\Debug\Trash Collecter Main.csprojResolveAssemblyReference.cache
-C:\Users\Andrew Jordan\Desktop\Trash Collector\TrashCollection\Trash Collecter Main\Trash Collecter Main\obj\Debug\Trash_Collecter_Main.Migrations.Addedlogininformation.resources
-C:\Users\Andrew Jordan\Desktop\Trash Collector\TrashCollection\Trash Collecter Main\Trash Collecter Main\obj\Debug\Trash Collecter Main.csproj.GenerateResource.Cache
 C:\Users\Andrew Jordan\Desktop\Trash Collector\TrashCollection\Trash Collecter Main\Trash Collecter Main\obj\Debug\Trash Collecter Main.dll
 C:\Users\Andrew Jordan\Desktop\Trash Collector\TrashCollection\Trash Collecter Main\Trash Collecter Main\obj\Debug\Trash Collecter Main.pdb
-C:\Users\Andrew Jordan\Desktop\Trash Collector\TrashCollection\Trash Collecter Main\Trash Collecter Main\obj\Debug\Trash_Collecter_Main.Migrations.Addroles.resources
+C:\Users\Andrew Jordan\Desktop\Trash Collector\TrashCollection\Trash Collecter Main\Trash Collecter Main\obj\Debug\Trash_Collecter_Main.Migrations.Createtablesandroles.resources
+C:\Users\Andrew Jordan\Desktop\Trash Collector\TrashCollection\Trash Collecter Main\Trash Collecter Main\obj\Debug\Trash Collecter Main.csproj.GenerateResource.Cache
