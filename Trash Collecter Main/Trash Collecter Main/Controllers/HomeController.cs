@@ -10,7 +10,7 @@ namespace Trash_Collecter_Main.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            return View("Index");
         }
 
         public ActionResult About()
@@ -25,6 +25,10 @@ namespace Trash_Collecter_Main.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+        public ActionResult Foo()
+        {
+            return View("About");
         }
     }
 }

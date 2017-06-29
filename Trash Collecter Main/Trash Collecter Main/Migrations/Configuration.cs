@@ -1,5 +1,8 @@
 namespace Trash_Collecter_Main.Migrations
 {
+    using Microsoft.AspNet.Identity;
+    using Microsoft.AspNet.Identity.EntityFramework;
+    using Models;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
@@ -11,7 +14,7 @@ namespace Trash_Collecter_Main.Migrations
         {
             AutomaticMigrationsEnabled = false;
         }
-
+        
         protected override void Seed(Trash_Collecter_Main.Models.ApplicationDbContext context)
         {
             //  This method will be called after migrating to the latest version.
@@ -26,6 +29,11 @@ namespace Trash_Collecter_Main.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
+            context.Roles.AddOrUpdate(r => r.Name,
+ 
+                new IdentityRole { Name = "Customer" },
+                new IdentityRole { Name = "Employee" }
+                );
         }
-    }
+    }  
 }
