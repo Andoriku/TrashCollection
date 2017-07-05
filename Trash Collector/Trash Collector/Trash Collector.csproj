@@ -216,8 +216,15 @@
     <Compile Include="Migrations\201706301418517_UPDATED ROLES.Designer.cs">
       <DependentUpon>201706301418517_UPDATED ROLES.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201707042257168_added customers, employees, and admin controllers.cs" />
+    <Compile Include="Migrations\201707042257168_added customers, employees, and admin controllers.Designer.cs">
+      <DependentUpon>201707042257168_added customers, employees, and admin controllers.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\AdminViewModel.cs" />
+    <Compile Include="Models\CustomerViewModel.cs" />
+    <Compile Include="Models\EmployeeViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -319,6 +326,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706301418517_UPDATED ROLES.resx">
       <DependentUpon>201706301418517_UPDATED ROLES.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707042257168_added customers, employees, and admin controllers.resx">
+      <DependentUpon>201707042257168_added customers, employees, and admin controllers.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

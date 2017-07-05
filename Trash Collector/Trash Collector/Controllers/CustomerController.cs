@@ -17,6 +17,7 @@ namespace Trash_Collector.Controllers
         // GET: Customer
         public ActionResult Index()
         {
+           
             return View(db.Users.ToList());
         }
 
