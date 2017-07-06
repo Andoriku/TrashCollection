@@ -318,9 +318,12 @@
     <Content Include="Views\Customer\GetDayOfPickup.cshtml" />
     <Content Include="Views\Employee\GetRoutes.cshtml" />
     <Content Include="Views\Employee\ViewRoute.cshtml" />
+    <Content Include="Views\Employee\LogDay.cshtml" />
+    <Content Include="Views\Employee\Thanks.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\LogDay\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

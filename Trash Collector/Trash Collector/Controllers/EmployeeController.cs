@@ -19,6 +19,47 @@ namespace Trash_Collector.Controllers
         {
             return View(db.Users.ToList());
         }
+        public ActionResult LogDay()
+        {
+            return View();
+        }
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public ActionResult LogDay(LogDayViewModel model)
+        {
+            var employee = db.Users.Where(item => item.UserName == User.Identity.Name).First();
+
+            employee.dayOfTheWeek = model.dayToLog;
+            db.SaveChanges();
+
+            foreach (ApplicationUser user in db.Users)
+            {
+
+                if (user.dayOfTheWeek == employee.dayOfTheWeek)
+                {
+                    user.balance += 25.99;                   
+                } 
+            }
+            db.SaveChanges();
+            return View("Thanks");
+        }
+        public ActionResult Thanks()
+        {
+            return View();
+        }
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public ActionResult Thanks(string id)
+        {
+            ApplicationUser applicationUser = db.Users.Find(id);
+            if (applicationUser == null)
+            {
+                return HttpNotFound();
+            }
+            return View("Index",applicationUser);
+        }
         public ActionResult GetRoutes()
         {
             return View();
