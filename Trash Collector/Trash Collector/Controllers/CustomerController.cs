@@ -1,24 +1,54 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using Trash_Collector.Models;
 
 namespace Trash_Collector.Controllers
 {
+
     public class CustomerController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
-
+        private ApplicationUserManager _userManager;
         // GET: Customer
         public ActionResult Index()
         {
-           
+
             return View(db.Users.ToList());
+        }
+        public ApplicationUserManager UserManager
+        {
+            get
+            {
+                return _userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+            }
+            private set
+            {
+                _userManager = value;
+            }
+        }
+        public ActionResult GetDayOfPickup()
+        {
+            return View();
+        }
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public ActionResult GetDayOfPickup(GetDayOfPickupViewModel model)
+        {
+            var user = db.Users.Where(item => item.UserName == User.Identity.Name).First();
+
+            user.dayOfTheWeek = model.dayOfTheWeek;
+            db.SaveChanges();
+            return RedirectToAction("Index", "Customer", db.Users.ToList());
         }
 
         // GET: Customer/Details/5

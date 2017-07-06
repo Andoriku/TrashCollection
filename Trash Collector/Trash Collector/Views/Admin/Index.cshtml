@@ -1,15 +1,18 @@
 ﻿@model IEnumerable<Trash_Collector.Models.ApplicationUser>
+@using Microsoft.AspNet.Identity
 
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Wecome @if (User.Identity != null)
+{ @Model.Where(item => item.UserName == User.Identity.GetUserName()).First().firstName }!</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+
 <table class="table">
     <tr>
         <th>

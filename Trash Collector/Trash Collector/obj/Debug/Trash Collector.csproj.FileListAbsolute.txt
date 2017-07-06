@@ -171,3 +171,4 @@ C:\Users\Andrew Jordan\Desktop\TrashCollection\Trash Collector\Trash Collector\o
 C:\Users\Andrew Jordan\Desktop\TrashCollection\Trash Collector\Trash Collector\obj\Debug\Trash Collector.dll
 C:\Users\Andrew Jordan\Desktop\TrashCollection\Trash Collector\Trash Collector\obj\Debug\Trash Collector.pdb
 C:\Users\Andrew Jordan\Desktop\TrashCollection\Trash Collector\Trash Collector\obj\Debug\Trash_Collector.Migrations.addedcustomersemployeesandadmincontrollers.resources
+C:\Users\Andrew Jordan\Desktop\TrashCollection\Trash Collector\Trash Collector\obj\Debug\Trash_Collector.Migrations.DayoftheWeek.resources

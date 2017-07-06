@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "ViewMap";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ViewMap</h2>
+
+<div id="map"style="width:50%; margin-right:0px; height:400px;"></div>
+
+    <script>
+      function initMap() {
+          var uluru = { lat: 43.044414, lng: -87.979550 };
+          var map = new google.maps.Map(document.getElementById('map'), {
+              zoom: 14,
+              center: uluru
+          });
+          var marker = new google.maps.Marker({
+              position: uluru,
+              map: map
+          });
+      }
+</script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAOLvsBt7YePtuFRyntidP7btOVr79gHOM&callback=initMap">
+</script>

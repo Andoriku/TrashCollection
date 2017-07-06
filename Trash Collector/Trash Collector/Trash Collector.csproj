@@ -201,6 +201,7 @@
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ViewMapController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -219,6 +220,10 @@
     <Compile Include="Migrations\201707042257168_added customers, employees, and admin controllers.cs" />
     <Compile Include="Migrations\201707042257168_added customers, employees, and admin controllers.Designer.cs">
       <DependentUpon>201707042257168_added customers, employees, and admin controllers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201707052331110_Day of the Week.cs" />
+    <Compile Include="Migrations\201707052331110_Day of the Week.Designer.cs">
+      <DependentUpon>201707052331110_Day of the Week.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -305,6 +310,8 @@
     <Content Include="Views\Employee\Details.cshtml" />
     <Content Include="Views\Employee\Edit.cshtml" />
     <Content Include="Views\Employee\Index.cshtml" />
+    <Content Include="Views\Employee\ViewMap.cshtml" />
+    <Content Include="Views\Customer\GetDayOfPickup.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -329,6 +336,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201707042257168_added customers, employees, and admin controllers.resx">
       <DependentUpon>201707042257168_added customers, employees, and admin controllers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707052331110_Day of the Week.resx">
+      <DependentUpon>201707052331110_Day of the Week.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

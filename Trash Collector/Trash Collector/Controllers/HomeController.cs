@@ -22,20 +22,20 @@ namespace Trash_Collector.Controllers
         }
         private ActionResult CheckRedirect()
         {
-                var roll = GetRole();
+            var roll = GetRole();
 
-                if (roll == "Admin")
-                {
-                    return RedirectToAction("Index", "Admin");
-                }
-                else if (roll == "Customer")
-                {
-                    return RedirectToAction("Index", "Customer");
-                }
-                else if (roll == "Employee")
-                {
-                    return RedirectToAction("Index", "Employee");
-                }
+            if (roll == "Admin")
+            {
+                return RedirectToAction("Index", "Admin");
+            }
+            else if (roll == "Customer")
+            {
+                return RedirectToAction("Index", "Customer");
+            }
+            else if (roll == "Employee")
+            {
+                return RedirectToAction("Index", "Employee");
+            }
 
             return View();
         }
@@ -49,7 +49,30 @@ namespace Trash_Collector.Controllers
                 var user = User.Identity;
                 var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
                 var s = UserManager.GetRoles(user.GetUserId());
-                role = s[0].ToString();
+                try
+                {
+                    if (s[0] == "Admin")
+                    {
+                        role = s[0].ToString();
+                    }
+                    else if (s[1] == "Admin")
+                    {
+                        role = s[1].ToString();
+                    }
+                    else if (s[2] == "Admin")
+                    {
+                        role = s[2].ToString();
+                    }
+                    else
+                    {
+                        role = s[0].ToString();
+                    }
+                }
+                catch
+                {
+                    role = s[0].ToString();
+                }
+
             }
             return role;
 
