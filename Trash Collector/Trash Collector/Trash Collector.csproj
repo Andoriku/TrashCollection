@@ -225,6 +225,10 @@
     <Compile Include="Migrations\201707052331110_Day of the Week.Designer.cs">
       <DependentUpon>201707052331110_Day of the Week.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201707061433247_Add Balance.cs" />
+    <Compile Include="Migrations\201707061433247_Add Balance.Designer.cs">
+      <DependentUpon>201707061433247_Add Balance.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AdminViewModel.cs" />
@@ -341,6 +345,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201707052331110_Day of the Week.resx">
       <DependentUpon>201707052331110_Day of the Week.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707061433247_Add Balance.resx">
+      <DependentUpon>201707061433247_Add Balance.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

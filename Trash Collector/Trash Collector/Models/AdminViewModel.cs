@@ -6,4 +6,5 @@ namespace Trash_Collector.Models
     public class AdminViewModel
     {
     }
+
 }

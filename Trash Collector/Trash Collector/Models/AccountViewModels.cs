@@ -99,6 +99,8 @@ namespace Trash_Collector.Models
         [Display(GroupName = "Address", Name = "Zipcode")]
         public int zipcode { get; set; }
 
+        public double balance { get; set; }
+
         [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
         [DataType(DataType.Password)]

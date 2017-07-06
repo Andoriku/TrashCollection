@@ -162,7 +162,8 @@ namespace Trash_Collector.Controllers
                     city = model.city,
                     state = model.state,
                     zipCode = model.zipcode,
-                    role = model.UserRoles
+                    role = model.UserRoles,
+                    balance = 0.00
                 };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)

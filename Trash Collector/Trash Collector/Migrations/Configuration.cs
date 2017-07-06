@@ -36,7 +36,7 @@ namespace Trash_Collector.Migrations
                new IdentityRole { Name = "Admin" }
                );
             var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
-            UserManager.AddToRole("035ede2b-3986-4173-84f7-648ebb8d870a", "Admin");
+           // UserManager.AddToRole("035ede2b-3986-4173-84f7-648ebb8d870a", "Admin");
         }
     }
 }

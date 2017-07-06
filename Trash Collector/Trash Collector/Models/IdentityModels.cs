@@ -18,6 +18,7 @@ namespace Trash_Collector.Models
         public int zipCode { get; set; }
         public string role { get; set; }
         public string dayOfTheWeek { get; set; }
+        public double balance { get; set; }
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType

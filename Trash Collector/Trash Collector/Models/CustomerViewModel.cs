@@ -9,5 +9,9 @@ namespace Trash_Collector.Models
         [Display(Name = "Day of the Week")]
         public string dayOfTheWeek { get; set; }
     }
-
+    public class GetBalanceViewModel
+    {
+        [Required]
+        public string balance { get; set; }
+    }
 }

@@ -33,6 +33,10 @@ namespace Trash_Collector.Models
         [Display(GroupName = "Address", Name = "Zipcode")]
         public int zipcode { get; set; }
     }
-    
-     
+    //public class LogDayViewModel
+    //{
+    //    [Required]
+    //    [Display(Name = "Day for the Route you've just completed")]
+    //    public string dayToLog { get; set; }
+    //}
 }
