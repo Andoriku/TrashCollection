@@ -19,6 +19,36 @@ namespace Trash_Collector.Controllers
         {
             return View(db.Users.ToList());
         }
+        public ActionResult GetRoutes()
+        {
+            return View();
+        }
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public ActionResult GetRoutes(GetRoutesViewModel model, List<ApplicationUser> people)
+        {
+            var employee = db.Users.Where(item => item.UserName == User.Identity.Name).First();
+
+            employee.dayOfTheWeek = model.todaysRoute;
+            db.SaveChanges();
+            List<ApplicationUser> peopleForToday = new List<ApplicationUser>();
+            foreach (ApplicationUser user in db.Users)
+            {
+                
+                if (user.dayOfTheWeek == employee.dayOfTheWeek)
+                {
+                    peopleForToday.Add(user);
+                }
+                
+            }
+            people = peopleForToday;
+            return View("ViewRoute", people);
+        }
+        public ActionResult ViewRoute(List<ApplicationUser> people)
+        {
+            return View();
+        }
         public ActionResult ViewMap()
         {
             return View();

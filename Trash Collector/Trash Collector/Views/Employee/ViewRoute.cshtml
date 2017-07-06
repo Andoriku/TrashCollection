@@ -1,0 +1,77 @@
+﻿@model IEnumerable<Trash_Collector.Models.ApplicationUser>
+@using Microsoft.AspNet.Identity
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>
+   Today's Route
+</h2>
+
+<p>@Html.ActionLink("Check A Diffrent Day", "GetRoutes")</p>
+
+@Html.ActionLink("View Route Map", "ViewMap")
+
+<p>Here is @Model.Where(item => item.UserName == User.Identity.GetUserName()).First().dayOfTheWeek's Route:</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.firstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.addressLine1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.addressLine2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.city)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.state)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.zipCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.firstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.lastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.addressLine1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.addressLine2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.city)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.state)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.zipCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td></td>
+        </tr>
+    }
+
+</table>
