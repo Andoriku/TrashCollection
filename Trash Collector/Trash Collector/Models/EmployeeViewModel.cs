@@ -39,4 +39,5 @@ namespace Trash_Collector.Models
         [Display(Name = "Day for the Route you've just completed")]
         public string dayToLog { get; set; }
     }
+
 }

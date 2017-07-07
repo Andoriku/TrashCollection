@@ -7,7 +7,9 @@
 }
 
 <h2>Wecome @if (User.Identity.Name != null) { @Model.Where(item => item.UserName == User.Identity.GetUserName()).First().firstName }!</h2>
+
 <p>@Html.ActionLink("Choose the day of the week You would like trash pickup","GetDayOfPickup")</p>
+
 <p>This is your information:</p>
 <table class="table">
     <tr>
@@ -37,6 +39,9 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.dayOfTheWeek)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.balance)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Email)
@@ -77,6 +82,9 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => Model.Where(item => item.UserName == User.Identity.GetUserName()).First().dayOfTheWeek)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => Model.Where(item => item.UserName == User.Identity.GetUserName()).First().balance)      
         </td>
         <td>
             @Html.DisplayFor(modelItem => Model.Where(item => item.UserName == User.Identity.GetUserName()).First().Email)

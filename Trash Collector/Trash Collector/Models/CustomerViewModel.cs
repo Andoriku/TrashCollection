@@ -14,4 +14,5 @@ namespace Trash_Collector.Models
         [Required]
         public string balance { get; set; }
     }
+    
 }

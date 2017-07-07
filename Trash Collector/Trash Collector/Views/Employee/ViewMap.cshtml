@@ -1,28 +1,145 @@
-﻿
+﻿@model IEnumerable<Trash_Collector.Models.ApplicationUser>
+    @using Trash_Collector.Models;
+@using Microsoft.AspNet.Identity
+
 @{
     ViewBag.Title = "ViewMap";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<style>
+    #right-panel {
+        font-family: 'Roboto','sans-serif';
+        line-height: 30px;
+        padding-left: 10px;
+    }
+
+        #right-panel select, #right-panel input {
+            font-size: 15px;
+        }
+
+        #right-panel select {
+            width: 100%;
+        }
+
+        #right-panel i {
+            font-size: 12px;
+        }
+
+    html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    #map {
+        height: 100%;
+        float: left;
+        width: 70%;
+        height: 100%;
+    }
+
+    #right-panel {
+        margin: 20px;
+        border-width: 2px;
+        width: 20%;
+        height: 400px;
+        float: left;
+        text-align: left;
+        padding-top: 0;
+    }
+
+    #directions-panel {
+        margin-top: 10px;
+        background-color: #FFEE77;
+        padding: 10px;
+        overflow: scroll;
+        height: 174px;
+    }
+</style>
 
 <h2>ViewMap</h2>
 
 <div id="map"style="width:50%; margin-right:0px; height:400px;"></div>
 
-    <script>
-        function initMap() {
-            var directionService = new google.maps.DirectionsService;
-            var directionsDisplay = new google.maps.DirectionsRenderer;
+   <div id="map"></div>
+<div id="right-panel">
+    <div>
+        <b>Start:</b>
+        <select id="start">
+            <option value="5230 w state st, Milwaukee, WI 53208">HQ</option>
+        </select>
+        <br>
+        <b>Pickups:</b> <br>
+        <i>(Ctrl+Click or Cmd+Click for multiple selection)</i> <br>
+        <select multiple id="waypoints">
+            <option value="3133 n fratney st, Milwaukee, WI 53212">Customer 1</option>
+            <option value="5673 N Humboldt Ave, Milwaukee, WI 53212">Customer 2</option>
+            <option value="1432 N Franklin St, Milwaukee, WI 54208">Customer 3</option>
+            <option value="5524 N Berkeley blvd, Milwaukee, WI 53217">Customer 4</option>
+            
+        </select>
+        <br>
+        <b>End:</b>
+        <select id="end">
+            <option value="5230 w state st, Milwaukee, WI 53208">HQ</option>
+        </select>
+        <br>
+        <input type="submit" id="submit">
+    </div>
+    <div id="directions-panel"></div>
+</div>
+<script>
+      function initMap() {
+        var directionsService = new google.maps.DirectionsService;
+        var directionsDisplay = new google.maps.DirectionsRenderer;
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 14,
+          center: { lat: 43.044414, lng: -87.979550 }
+        });
+        directionsDisplay.setMap(map);
 
-          var uluru = { lat: 43.044414, lng: -87.979550 };
-          var map = new google.maps.Map(document.getElementById('map'), {
-              zoom: 14,
-              center: uluru
-          });
-          directionsDisplay.setMap(map);
-          var marker = new google.maps.Marker({
-              position: uluru,
-              map: map
-          });
+        document.getElementById('submit').addEventListener('click', function() {
+          calculateAndDisplayRoute(directionsService, directionsDisplay);
+        });
+      }
+
+      function calculateAndDisplayRoute(directionsService, directionsDisplay) {
+        var waypts = [];
+        var checkboxArray = document.getElementById('waypoints');
+        for (var i = 0; i < checkboxArray.length; i++) {
+          if (checkboxArray.options[i].selected) {
+            waypts.push({
+              location: checkboxArray[i].value,
+              stopover: true
+            });
+          }
+        }
+
+        directionsService.route({
+          origin: document.getElementById('start').value,
+          destination: document.getElementById('end').value,
+          waypoints: waypts,
+          optimizeWaypoints: true,
+          travelMode: 'DRIVING'
+        }, function(response, status) {
+          if (status === 'OK') {
+            directionsDisplay.setDirections(response);
+            var route = response.routes[0];
+            var summaryPanel = document.getElementById('directions-panel');
+            summaryPanel.innerHTML = '';
+            // For each route, display summary information.
+            for (var i = 0; i < route.legs.length; i++) {
+              var routeSegment = i + 1;
+              summaryPanel.innerHTML += '<b>Route Segment: ' + routeSegment +
+                  '</b><br>';
+              summaryPanel.innerHTML += route.legs[i].start_address + ' to ';
+              summaryPanel.innerHTML += route.legs[i].end_address + '<br>';
+              summaryPanel.innerHTML += route.legs[i].distance.text + '<br><br>';
+            }
+          } else {
+            window.alert('Directions request failed due to ' + status);
+          }
+        });
       }
 </script>
 <script async defer
